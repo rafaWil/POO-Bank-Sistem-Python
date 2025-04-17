@@ -26,13 +26,8 @@ Initiate the modeling of a simple bank system using Object-Oriented Programming.
 ## 🤖 AI Tools Used  
 - DeepSeek
 
+## Project accompanied by the course on this platform
+[Click here to access the Dio.PRO Bootcamp](https://www.dio.me/bootcamp)
 
-📁 bank-system/
-│
-├── bank_system.py      # Main Python file with classes and logic
-├── README.md           # Project description
-
-
----
 
 ##
