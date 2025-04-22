@@ -114,7 +114,6 @@ class ContaCorrente(Conta):
             Titular:\t{self.cliente.nome}
         """
 
-
 # Classe HISTORICO
 class Historico:
     def __init__(self):
