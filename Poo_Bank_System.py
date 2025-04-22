@@ -160,7 +160,9 @@ class Saque(Transacao):
         if sucesso_transacao:
             conta.historico.adicionar_transacao(self)
             
+            
 # Classe DEPOSITO => Transacao
+class Deposito(Transacao):
     def __init__(self, valor):
         self._valor = valor
         
