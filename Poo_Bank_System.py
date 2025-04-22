@@ -186,10 +186,14 @@ def menu():
     =>"""
     return input(textwrap.dedent(menu))
 
+
+# FILTRAR CLIENTE
 def filtrar_cliente(cpf, clientes):
     clientes_filtrados = [cliente for cliente in clientes if cliente.cpf == cpf]
     return clientes_filtrados[0] if clientes_filtrados else None
 
+
+# RECUPERAR CONTA CLIENTE
 def recuperar_conta_cliente(cliente):
     if not cliente.contas:
         print("\n@@@ Cliente nao possui conta! @@@")
@@ -197,6 +201,7 @@ def recuperar_conta_cliente(cliente):
     # FIXME: nao permite cliente escolher a conta
     return cliente.contas[0]
 
+# DEPOSITAR
 def depositar(clientes):
     cpf = input("Informe o CPF do cliente: ")
     cliente = filtrar_cliente(cpf, clientes)
@@ -213,7 +218,9 @@ def depositar(clientes):
         return
     
     cliente.realizar_transacao(conta, transacao)
-    
+ 
+
+# SACAR   
 def sacar(clientes):
     cpf = input("Informe o CPF do cliente: ")
     cliente = filtrar_cliente(cpf, clientes)
@@ -231,6 +238,8 @@ def sacar(clientes):
     
     cliente.realizar_transacao(conta, transacao)
         
+        
+# EXIBIR EXTRATO
 def exibir_extrato(clientes):
     cpf = input("Informe o CPF do cliente: ")
     cliente = filtrar_cliente(cpf, clientes)
@@ -257,6 +266,8 @@ def exibir_extrato(clientes):
     print(f"\nSaldo:\n\tR$ {conta.saldo:.2f}")
     print("========================================")    
 
+
+# CRIAR CLIENTE
 def criar_cliente(clientes):
     cpf = input("Informe o CPF (somente número): ")
     cliente = filtrar_cliente(cpf, clientes)
@@ -275,6 +286,7 @@ def criar_cliente(clientes):
     
     print("\n=== Cliente criado com sucesso! ===")
     
+# CRIAR CONTA
 def criar_conta(numero_conta, clientes, contas):
     cpf = input("Informe o CPF do cliente: ")
     cliente = filtrar_cliente(cpf, clientes)
@@ -287,6 +299,7 @@ def criar_conta(numero_conta, clientes, contas):
     contas.append(conta)
     cliente.contas.append(conta)
     
+# LISTAR CONTAS
 def listar_contas(contas):
     for conta in contas:
         print("=" * 100)
