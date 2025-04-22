@@ -132,3 +132,14 @@ class Historico:
                 "data": datetime.now().strftime("%d-%m-%Y %H:%M:%s"),
             }
         )
+    
+# Classe TRANSACAO
+class Transacao(ABC):
+    @property
+    @abstractmethod
+    def valor(self):
+        pass
+    
+    @abstractmethod
+    def registrar(self, conta):
+        pass
