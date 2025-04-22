@@ -159,7 +159,6 @@ class Saque(Transacao):
             conta.historico.adicionar_transacao(self)
             
 # Classe DEPOSITO => Transacao
-class Deposito(Transacao):
     def __init__(self, valor):
         self._valor = valor
         
@@ -172,3 +171,28 @@ class Deposito(Transacao):
         
         if sucesso_transacao:
             conta.historico.adicionar_transacao(self)
+            
+            
+
+def menu():
+    menu = """\n
+    ============= MENU =============
+    [d]\tDepositar
+    [s]\tSacar
+    [e]\tExtrato
+    [nc]\tNova Conta
+    [lc]\tListar Contas
+    [q]\tSair
+    =>"""
+    return input(textwrap.dedent(menu))
+
+def filtrar_cliente(cpf, clientes):
+    clientes_filtrados = [cliente for cliente in clientes if cliente.cpf == cpf]
+    return clientes_filtrados[0] if clientes_filtrados else None
+
+def recuperar_conta_cliente(cliente):
+    if not cliente.contas:
+        print("\n@@@ Cliente nao possui conta! @@@")
+        
+    # FIXME: nao permite cliente escolher a conta
+    return cliente.contas[0]
