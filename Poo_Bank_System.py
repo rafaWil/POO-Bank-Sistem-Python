@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
 # Bibliotecas de uso para tempo e modelos abstratos
+import textwrap
+
 
 # classe CLIENTE
 class Cliente:
@@ -260,7 +262,8 @@ def exibir_extrato(clientes):
         extrato = "Nao foram realizadas movimentacoes."
     else: 
         for transacao in transacoes:
-            extrato += f"\n{transacoes['tipo']}:\n\tR${transacao['valor']:.2f}"
+            extrato += f"\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
+
             
     print(extrato)
     print(f"\nSaldo:\n\tR$ {conta.saldo:.2f}")
