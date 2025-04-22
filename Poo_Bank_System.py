@@ -268,3 +268,39 @@ def listar_contas(contas):
     for conta in contas:
         print("=" * 100)
         print(textwrap.dedent(str(conta)))
+        
+
+def main():
+    clientes = []
+    contas = []
+    
+    while True:
+        opcao = menu()
+        
+        if opcao == "d":
+            depositar(clientes)
+            
+        elif opcao == "s":
+            sacar(clientes)
+            
+        elif opcao == "e":
+            exibir_extrato(clientes)
+            
+        elif opcao == "nu":
+            criar_cliente(clientes)
+            
+        elif opcao == "nc":
+            numero_conta = len(contas) + 1
+            criar_conta(numero_conta, clientes, contas)
+            
+        elif opcao == "lc":
+            listar_contas(contas)
+            
+        elif opcao == "q": 
+            break
+        
+        else:
+            print("\n@@@ Operacao invalida, por favor selecione novamente a operacao desejada. @@@")
+            
+            
+main()
